@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet private var TitleLabel: UILabel!
     @IBOutlet private var separatorContainer: UIView!
     @IBOutlet private var allMovieTitleLabel: UILabel!
+    @IBOutlet private var searchButton: UIButton!
+    @IBOutlet private var loadingView: UIView!
+    @IBOutlet private var loadingIndicator: UIActivityIndicatorView!
     
     typealias strings = CommonStrings
     
@@ -30,8 +33,11 @@ class ViewController: UIViewController {
         tableView.register(MovieTableViewCell.nib(), forCellReuseIdentifier: "MovieTableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
+        loadingView.isHidden = false
+        loadingIndicator.startAnimating()
         getMovies(from: strings.MovieApi.baseURL + strings.MovieApi.allMoviesURL)
         getMovieGenres(from: strings.MovieApi.baseURL + strings.MovieApi.movieGenreURL)
+        allMovieTitleLabel.text = strings.MainScreen.allMovies
     }
     
     private func getMovies(from url: String) {
@@ -61,6 +67,8 @@ class ViewController: UIViewController {
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.loadingView.isHidden = true
+                self.loadingIndicator.stopAnimating()
             }
         }).resume()
     }
@@ -71,11 +79,17 @@ class ViewController: UIViewController {
         TitleLabel.text = strings.MainScreen.searchBarText
         TitleLabel.font = Font.Futura.medium(size: 17)
         TitleLabel.textColor = UIColor.white
-        allMovieTitleLabel.text = strings.MainScreen.allMovies
         allMovieTitleLabel.textColor = UIColor.white
         allMovieTitleLabel.font = Font.Futura.medium(size: 10)
         allMovieTitleLabel.alpha = 0.5
+        loadingView.backgroundColor = UIColor.Primary.mainBlack
+        loadingIndicator.color = UIColor.white
     }
+    
+    @IBAction func didTapSearchButton(_ sender: Any) {
+        
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -103,7 +117,8 @@ extension ViewController: UITableViewDataSource {
 extension ViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let movieDetails = MovieDetailsViewController(with: movies[indexPath.row])
+        let movieDetails = UIStoryboard(name: "MovieDetailsViewController", bundle: nil).instantiateViewController(withIdentifier: "DetailsViewController") as! MovieDetailsViewController;
+        movieDetails.configure(with: movies[indexPath.row])
         movieDetails.modalPresentationStyle = .fullScreen
         movieDetails.loadViewIfNeeded()
         present(movieDetails, animated: true, completion: nil)

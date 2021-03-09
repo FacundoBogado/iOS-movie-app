@@ -48,24 +48,15 @@ class MovieTableViewCell: UITableViewCell {
     
     private func style() {
         movieImageView.contentMode = .scaleToFill
-        movieImageView.addoverlay(color: UIColor.Primary.secondaryBlack, alpha: 0.9)
+        movieImageView.addoverlay(color: UIColor.Primary.secondaryBlack, alpha: 0.8)
         containerView.backgroundColor = UIColor.Primary.secondaryBlack.withAlphaComponent(0.5)
         movieGenreLabel.font = Font.Futura.bold(size: 12)
         movieTitleLabel.font = Font.Futura.bold(size: 16)
         movieTitleLabel.textColor = UIColor.Primary.iceBlue
         movieGenreLabel.textColor = UIColor.Primary.iceBlue
-        containerView.layer.cornerRadius = 5;
-        containerView.layer.masksToBounds = true;
-    }
-}
-
-extension UIView {
-    func addoverlay(color: UIColor = .black,alpha : CGFloat = 0.6) {
-        let overlay = UIView()
-        overlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        overlay.frame = bounds
-        overlay.backgroundColor = color
-        overlay.alpha = alpha
-        addSubview(overlay)
+        containerView.layer.cornerRadius = 5
+        containerView.layer.masksToBounds = true
+        movieContentView.layer.cornerRadius = 5
+        movieContentView.layer.masksToBounds = true
     }
 }

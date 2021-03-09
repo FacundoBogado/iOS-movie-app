@@ -21,11 +21,14 @@ public struct CommonStrings {
         static let allMovies = "TODAS"
     }
     
-    
     public struct Buttons {
         static let buttonSubscribeDefaultText = "SUSCRIBIRME"
         static let buttonSubscribedText = "SUSCRIPTO"
         static let buttonAddMovie = "AGREGAR"
         static let buttonAddedMovie = "AGREGADO"
+    }
+    
+    public struct LabelText {
+        static let overview = "OVERVIEW"
     }
 }

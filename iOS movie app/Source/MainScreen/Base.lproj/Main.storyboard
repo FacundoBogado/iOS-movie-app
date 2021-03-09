@@ -40,6 +40,9 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="magnifyingglass" catalog="system"/>
+                                        <connections>
+                                            <action selector="didTapSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bon-Cf-PwU"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSt-6s-Rpr">
                                         <rect key="frame" x="132.5" y="43" width="149" height="20"/>
@@ -63,6 +66,19 @@
                                     <constraint firstItem="L77-2E-HAB" firstAttribute="top" secondItem="PnI-cP-3kQ" secondAttribute="top" constant="36" id="jOI-UO-mzh"/>
                                     <constraint firstAttribute="width" constant="414" id="o1P-YQ-JjF"/>
                                     <constraint firstItem="CSt-6s-Rpr" firstAttribute="centerY" secondItem="L77-2E-HAB" secondAttribute="centerY" id="pj4-rK-Zvq"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNZ-xa-Vag">
+                                <rect key="frame" x="0.0" y="137" width="414" height="759"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="nnA-dI-Q6z">
+                                        <rect key="frame" x="197" y="369.5" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="nnA-dI-Q6z" firstAttribute="centerX" secondItem="QNZ-xa-Vag" secondAttribute="centerX" id="Hcw-Cj-eHY"/>
+                                    <constraint firstItem="nnA-dI-Q6z" firstAttribute="centerY" secondItem="QNZ-xa-Vag" secondAttribute="centerY" id="yX8-2a-5nq"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYS-2M-i1A">
@@ -89,10 +105,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="QNZ-xa-Vag" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="17W-oI-sPc"/>
                             <constraint firstItem="36S-Qu-LON" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3Jg-Ar-K6A"/>
                             <constraint firstItem="BYS-2M-i1A" firstAttribute="top" secondItem="PnI-cP-3kQ" secondAttribute="bottom" id="536-Iw-IfH"/>
+                            <constraint firstItem="QNZ-xa-Vag" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6VE-gu-Ssv"/>
                             <constraint firstItem="36S-Qu-LON" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="7oj-Az-g1N"/>
+                            <constraint firstAttribute="bottom" secondItem="QNZ-xa-Vag" secondAttribute="bottom" id="EPa-aO-N07"/>
                             <constraint firstItem="BYS-2M-i1A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Nie-hm-dNl"/>
+                            <constraint firstItem="QNZ-xa-Vag" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="137" id="RRJ-T3-HvL"/>
                             <constraint firstItem="36S-Qu-LON" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UX0-ox-utw"/>
                             <constraint firstItem="36S-Qu-LON" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="XQ9-Gj-jAQ"/>
                             <constraint firstItem="36S-Qu-LON" firstAttribute="top" secondItem="BYS-2M-i1A" secondAttribute="bottom" id="bkU-Bz-vgd"/>
@@ -106,7 +126,10 @@
                     <connections>
                         <outlet property="TitleLabel" destination="CSt-6s-Rpr" id="LeF-7c-349"/>
                         <outlet property="allMovieTitleLabel" destination="trb-XF-B8p" id="CE0-6h-1Ry"/>
+                        <outlet property="loadingIndicator" destination="nnA-dI-Q6z" id="4Nk-sO-hbr"/>
+                        <outlet property="loadingView" destination="QNZ-xa-Vag" id="qPs-Jp-D9f"/>
                         <outlet property="movieSearchConteiner" destination="PnI-cP-3kQ" id="fJz-KO-6XX"/>
+                        <outlet property="searchButton" destination="L77-2E-HAB" id="cDj-pu-QV0"/>
                         <outlet property="separatorContainer" destination="BYS-2M-i1A" id="ASH-gH-dIi"/>
                         <outlet property="tableView" destination="36S-Qu-LON" id="uap-O0-Qt3"/>
                     </connections>
