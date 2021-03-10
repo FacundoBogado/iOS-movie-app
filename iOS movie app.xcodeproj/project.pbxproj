@@ -26,6 +26,9 @@
 		F5E815CD25F6DBA800909F2C /* SearchMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E815CC25F6DBA800909F2C /* SearchMovieViewController.swift */; };
 		F5E815DD25F7EAD200909F2C /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E815DC25F7EAD200909F2C /* UIImage.swift */; };
 		F5E815E225F7EC1500909F2C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E815E125F7EC1500909F2C /* UIView.swift */; };
+		F5E815E525F820C700909F2C /* SearchMovieViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E815E425F820C600909F2C /* SearchMovieViewController.storyboard */; };
+		F5E815EA25F90B6300909F2C /* MovieWithButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E815E825F90B6300909F2C /* MovieWithButtonTableViewCell.swift */; };
+		F5E815EB25F90B6300909F2C /* MovieWithButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5E815E925F90B6300909F2C /* MovieWithButtonTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		F5E815CC25F6DBA800909F2C /* SearchMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieViewController.swift; sourceTree = "<group>"; };
 		F5E815DC25F7EAD200909F2C /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		F5E815E125F7EC1500909F2C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		F5E815E425F820C600909F2C /* SearchMovieViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchMovieViewController.storyboard; sourceTree = "<group>"; };
+		F5E815E825F90B6300909F2C /* MovieWithButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWithButtonTableViewCell.swift; sourceTree = "<group>"; };
+		F5E815E925F90B6300909F2C /* MovieWithButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieWithButtonTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 				F5E815C325F6BA0500909F2C /* Model */,
 				F5E8154825F3C2BB00909F2C /* MainScreen */,
 				F5E815CB25F6DAB800909F2C /* SearchMovie */,
+				F5E8157625F542C100909F2C /* MovieDetails */,
 				F5E8154225F3BE9000909F2C /* Common */,
 			);
 			path = Source;
@@ -114,7 +121,6 @@
 		F5E8154225F3BE9000909F2C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F5E8157625F542C100909F2C /* MovieDetails */,
 				F5E8154A25F3C5BB00909F2C /* MovieTableCell */,
 				F5E8154325F3BEEE00909F2C /* Strings.swift */,
 				F5E815DC25F7EAD200909F2C /* UIImage.swift */,
@@ -139,6 +145,8 @@
 			children = (
 				F5E8156F25F519F900909F2C /* MovieTableViewCell.swift */,
 				F5E8157025F519F900909F2C /* MovieTableViewCell.xib */,
+				F5E815E825F90B6300909F2C /* MovieWithButtonTableViewCell.swift */,
+				F5E815E925F90B6300909F2C /* MovieWithButtonTableViewCell.xib */,
 			);
 			path = MovieTableCell;
 			sourceTree = "<group>";
@@ -166,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				F5E815CC25F6DBA800909F2C /* SearchMovieViewController.swift */,
+				F5E815E425F820C600909F2C /* SearchMovieViewController.storyboard */,
 			);
 			path = SearchMovie;
 			sourceTree = "<group>";
@@ -229,6 +238,8 @@
 			files = (
 				F5E8157225F519F900909F2C /* MovieTableViewCell.xib in Resources */,
 				F5E8153625F3BD6B00909F2C /* LaunchScreen.storyboard in Resources */,
+				F5E815EB25F90B6300909F2C /* MovieWithButtonTableViewCell.xib in Resources */,
+				F5E815E525F820C700909F2C /* SearchMovieViewController.storyboard in Resources */,
 				F5E8153325F3BD6B00909F2C /* Assets.xcassets in Resources */,
 				F5E8157F25F544DE00909F2C /* MovieDetailsViewController.storyboard in Resources */,
 				F5E8153125F3BD6600909F2C /* Main.storyboard in Resources */,
@@ -244,6 +255,7 @@
 			files = (
 				F5E815C925F6BB3500909F2C /* MovieGenre.swift in Sources */,
 				F5E8152E25F3BD6600909F2C /* ViewController.swift in Sources */,
+				F5E815EA25F90B6300909F2C /* MovieWithButtonTableViewCell.swift in Sources */,
 				F5E8155725F3F72200909F2C /* UIColor.swift in Sources */,
 				F5E8157825F5435500909F2C /* MovieDetailsViewController.swift in Sources */,
 				F5E8157125F519F900909F2C /* MovieTableViewCell.swift in Sources */,

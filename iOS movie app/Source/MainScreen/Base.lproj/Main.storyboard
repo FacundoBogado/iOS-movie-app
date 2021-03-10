@@ -45,7 +45,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSt-6s-Rpr">
-                                        <rect key="frame" x="132.5" y="43" width="149" height="20"/>
+                                        <rect key="frame" x="133" y="43" width="149" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="149" id="OaD-tL-5jH"/>
                                             <constraint firstAttribute="height" constant="20" id="vWo-j9-uPQ"/>
@@ -54,17 +54,26 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="OFi-Iy-ebU">
+                                        <rect key="frame" x="4" y="36" width="54" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="2wX-f5-wJJ"/>
+                                        </constraints>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="6xi-NE-1Is"/>
+                                    <constraint firstAttribute="bottom" secondItem="OFi-Iy-ebU" secondAttribute="bottom" constant="10" id="8h2-8t-3fg"/>
                                     <constraint firstItem="CSt-6s-Rpr" firstAttribute="baseline" secondItem="L77-2E-HAB" secondAttribute="firstBaseline" id="9f3-eY-7ek"/>
                                     <constraint firstItem="CSt-6s-Rpr" firstAttribute="centerX" secondItem="PnI-cP-3kQ" secondAttribute="centerX" id="F7m-V5-NGu"/>
                                     <constraint firstAttribute="bottom" secondItem="L77-2E-HAB" secondAttribute="bottom" constant="10" id="QuT-xN-llZ"/>
+                                    <constraint firstItem="OFi-Iy-ebU" firstAttribute="top" secondItem="PnI-cP-3kQ" secondAttribute="top" constant="36" id="ciy-GL-1U8"/>
                                     <constraint firstItem="L77-2E-HAB" firstAttribute="leading" secondItem="PnI-cP-3kQ" secondAttribute="leading" constant="4" id="dre-LF-JAD"/>
                                     <constraint firstItem="CSt-6s-Rpr" firstAttribute="baseline" secondItem="L77-2E-HAB" secondAttribute="baseline" id="g28-Kp-uIj"/>
                                     <constraint firstItem="L77-2E-HAB" firstAttribute="top" secondItem="PnI-cP-3kQ" secondAttribute="top" constant="36" id="jOI-UO-mzh"/>
                                     <constraint firstAttribute="width" constant="414" id="o1P-YQ-JjF"/>
+                                    <constraint firstItem="OFi-Iy-ebU" firstAttribute="leading" secondItem="PnI-cP-3kQ" secondAttribute="leading" constant="4" id="pLo-6t-g2A"/>
                                     <constraint firstItem="CSt-6s-Rpr" firstAttribute="centerY" secondItem="L77-2E-HAB" secondAttribute="centerY" id="pj4-rK-Zvq"/>
                                 </constraints>
                             </view>
@@ -103,7 +112,6 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QNZ-xa-Vag" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="17W-oI-sPc"/>
                             <constraint firstItem="36S-Qu-LON" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3Jg-Ar-K6A"/>
@@ -130,6 +138,7 @@
                         <outlet property="loadingView" destination="QNZ-xa-Vag" id="qPs-Jp-D9f"/>
                         <outlet property="movieSearchConteiner" destination="PnI-cP-3kQ" id="fJz-KO-6XX"/>
                         <outlet property="searchButton" destination="L77-2E-HAB" id="cDj-pu-QV0"/>
+                        <outlet property="searchLoadingIndicator" destination="OFi-Iy-ebU" id="iDm-by-guc"/>
                         <outlet property="separatorContainer" destination="BYS-2M-i1A" id="ASH-gH-dIi"/>
                         <outlet property="tableView" destination="36S-Qu-LON" id="uap-O0-Qt3"/>
                     </connections>

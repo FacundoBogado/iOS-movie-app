@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Movie View Controller-->
+        <scene sceneID="pET-GX-yaw">
+            <objects>
+                <viewController storyboardIdentifier="SearchMovie" id="3nJ-a3-zLP" customClass="SearchMovieViewController" customModule="iOS_movie_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gMt-Gc-2MR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbw-dx-J6h">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gL-ZQ-nGm">
+                                        <rect key="frame" x="339" y="43" width="67" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="67" id="38l-Aa-TDv"/>
+                                            <constraint firstAttribute="height" constant="25" id="DFj-ue-a3A"/>
+                                        </constraints>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapCancelAction:" destination="3nJ-a3-zLP" eventType="touchUpInside" id="xZi-kT-VuY"/>
+                                        </connections>
+                                    </button>
+                                    <searchBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrY-VY-Ae0">
+                                        <rect key="frame" x="8" y="39" width="331" height="44"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="4gL-ZQ-nGm" secondAttribute="bottom" constant="15" id="2Ie-BF-Z6x"/>
+                                    <constraint firstItem="zrY-VY-Ae0" firstAttribute="leading" secondItem="qbw-dx-J6h" secondAttribute="leading" constant="8" id="43F-OD-H6G"/>
+                                    <constraint firstItem="4gL-ZQ-nGm" firstAttribute="leading" secondItem="zrY-VY-Ae0" secondAttribute="trailing" id="7iG-ca-Rtg"/>
+                                    <constraint firstAttribute="trailing" secondItem="4gL-ZQ-nGm" secondAttribute="trailing" constant="8" id="SPY-SN-jhy"/>
+                                    <constraint firstItem="4gL-ZQ-nGm" firstAttribute="top" secondItem="qbw-dx-J6h" secondAttribute="top" constant="43" id="TW5-Zd-SC8"/>
+                                    <constraint firstItem="zrY-VY-Ae0" firstAttribute="top" secondItem="qbw-dx-J6h" secondAttribute="top" constant="39" id="lUE-Mi-3mM"/>
+                                    <constraint firstAttribute="bottom" secondItem="zrY-VY-Ae0" secondAttribute="bottom" id="vvV-SG-ePM"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rXI-4H-sPO">
+                                <rect key="frame" x="0.0" y="83" width="414" height="813"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="813" id="Pup-HN-3QN"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sV0-gZ-GoM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rXI-4H-sPO" firstAttribute="top" secondItem="qbw-dx-J6h" secondAttribute="bottom" id="BNe-2t-sDj"/>
+                            <constraint firstItem="qbw-dx-J6h" firstAttribute="leading" secondItem="sV0-gZ-GoM" secondAttribute="leading" id="KNr-06-nDG"/>
+                            <constraint firstItem="rXI-4H-sPO" firstAttribute="trailing" secondItem="sV0-gZ-GoM" secondAttribute="trailing" id="Ka4-Ls-J4G"/>
+                            <constraint firstItem="rXI-4H-sPO" firstAttribute="leading" secondItem="sV0-gZ-GoM" secondAttribute="leading" id="ft6-Pb-s9n"/>
+                            <constraint firstItem="rXI-4H-sPO" firstAttribute="top" secondItem="qbw-dx-J6h" secondAttribute="bottom" id="nGT-Gu-Xnh"/>
+                            <constraint firstItem="qbw-dx-J6h" firstAttribute="top" secondItem="gMt-Gc-2MR" secondAttribute="top" id="oHP-3I-QKs"/>
+                            <constraint firstItem="qbw-dx-J6h" firstAttribute="trailing" secondItem="sV0-gZ-GoM" secondAttribute="trailing" id="pcP-vx-CuD"/>
+                            <constraint firstAttribute="bottom" secondItem="rXI-4H-sPO" secondAttribute="bottom" id="xfg-qS-4RZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="4gL-ZQ-nGm" id="piw-Eb-TDD"/>
+                        <outlet property="movieSearchBar" destination="zrY-VY-Ae0" id="WD6-iL-vGZ"/>
+                        <outlet property="moviesTableView" destination="rXI-4H-sPO" id="mIN-lW-TAu"/>
+                        <outlet property="searchbarContainer" destination="qbw-dx-J6h" id="aWt-8w-eYa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LXC-Nf-8US" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-28.985507246376812" y="0.0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet private var searchButton: UIButton!
     @IBOutlet private var loadingView: UIView!
     @IBOutlet private var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet private var searchLoadingIndicator: UIActivityIndicatorView!
     
     typealias strings = CommonStrings
     
@@ -27,6 +28,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setup()
         style()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchLoadingIndicator.color = UIColor.white
+        searchLoadingIndicator.isHidden = true
+        searchButton.isHidden = false
+        searchButton.isEnabled = true
     }
     
     private func setup() {
@@ -74,6 +83,7 @@ class ViewController: UIViewController {
     }
     
     private func style() {
+        
         separatorContainer.backgroundColor = UIColor.Primary.mainBlack
         movieSearchConteiner.backgroundColor = UIColor.black
         TitleLabel.text = strings.MainScreen.searchBarText
@@ -84,12 +94,37 @@ class ViewController: UIViewController {
         allMovieTitleLabel.alpha = 0.5
         loadingView.backgroundColor = UIColor.Primary.mainBlack
         loadingIndicator.color = UIColor.white
+        tableView.backgroundColor = UIColor.Primary.mainBlack
     }
     
     @IBAction func didTapSearchButton(_ sender: Any) {
-        
+        searchLoadingIndicator.startAnimating()
+        searchLoadingIndicator.isHidden = false
+        searchButton.isHidden = true
+        searchButton.isEnabled = false
+        let searchMovie = UIStoryboard(name: "SearchMovieViewController", bundle: nil).instantiateViewController(withIdentifier: "SearchMovie") as! SearchMovieViewController;
+        searchMovie.configure(with: createMovieViewModel(using: movies))
+        searchMovie.modalPresentationStyle = .fullScreen
+        searchMovie.loadViewIfNeeded()
+        present(searchMovie, animated: true, completion: nil)
     }
     
+    private func createMovieViewModel(using movies: [Movie]) -> [MovieViewModel] {
+        var moviesViewModel: [MovieViewModel] = []
+        
+        for movie in movies {
+            let movieVM =  MovieViewModel(title: movie.title,
+                                          genre: getGenreForMovie(using: movie.genre_ids.first ?? 0),
+                                          poster_path: movie.poster_path)
+            moviesViewModel.append(movieVM)
+        }
+        return moviesViewModel
+    }
+    
+    
+    private func getGenreForMovie(using movieId: Int) -> String {
+        return movieGenres.filter { $0.id == movieId }.first?.name.uppercased() ?? ""
+    }
 }
 
 extension ViewController: UITableViewDataSource {
@@ -107,10 +142,6 @@ extension ViewController: UITableViewDataSource {
         cell.backgroundColor = UIColor.Primary.mainBlack
         cell.selectionStyle = .none
         return cell
-    }
-    
-    private func getGenreForMovie(using movieId: Int) -> String {
-        return movieGenres.filter { $0.id == movieId }.first?.name.uppercased() ?? ""
     }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MovieDetailsViewController: UIViewController {
+class MovieDetailsViewController: UIViewController, UITableViewDelegate {
     typealias strings = CommonStrings
     
     @IBOutlet private var movieImageView: UIImageView!
@@ -22,12 +22,13 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet private var imageBackground: UIImageView!
     @IBOutlet private var backButtonContainer: UIView!
     @IBOutlet private var backButton: UIButton!
-    @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var contentView: UIView!
+    @IBOutlet private var scrollView: UIScrollView!
+    @IBOutlet private var contentView: UIView!
+    @IBOutlet private var overviewTableView: UITableView!
     
     private var model: Movie?
     
-    init(with model: Movie){
+    init(with model: Movie) {
         super.init(nibName: nil, bundle: nil)
         configure(with: model)
     }
@@ -39,6 +40,15 @@ class MovieDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
+        setup()
+    }
+    
+    func configure(with model: Movie) {
+        self.model = model
+    }
+    
+    private func setup() {
+        overviewTableView.dataSource = self
         self.overviewLabel.text = strings.LabelText.overview
         self.movieTitle.text = model!.title
         self.movieOverview.text = model!.overview
@@ -50,10 +60,6 @@ class MovieDetailsViewController: UIViewController {
             self.imageBackground.contentMode = .scaleToFill
             self.imageBackground.addoverlay(color: (UIImage(data: data)?.averageColor)!, alpha: 0.8)
         }
-    }
-    
-    func configure(with model: Movie) {
-        self.model = model
     }
     
     private func style() {
@@ -76,9 +82,31 @@ class MovieDetailsViewController: UIViewController {
         backButtonContainer.layer.cornerRadius = backButtonContainer.frame.size.width/2
         backButtonContainer.layer.masksToBounds = true
         backButtonContainer.backgroundColor = UIColor.black
+        overviewTableView.backgroundColor = UIColor.clear
     }
     
     @IBAction func didTapBackButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+
+extension MovieDetailsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.backgroundColor = UIColor.clear
+        return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let tableViewYPosition = 200 - (scrollView.contentOffset.y + 200)
+        let height = max(60, tableViewYPosition)
+        let width = max(40, tableViewYPosition)
+        let movieFrame = CGRect(x: 0, y: 0, width: width, height: height)
+        movieImageView.frame = movieFrame
     }
 }
