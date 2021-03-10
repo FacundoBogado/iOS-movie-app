@@ -48,7 +48,6 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate {
     }
     
     private func setup() {
-        overviewTableView.dataSource = self
         self.overviewLabel.text = strings.LabelText.overview
         self.movieTitle.text = model!.title
         self.movieOverview.text = model!.overview
@@ -87,26 +86,5 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate {
     
     @IBAction func didTapBackButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-}
-
-
-extension MovieDetailsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = UIColor.clear
-        return cell
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let tableViewYPosition = 200 - (scrollView.contentOffset.y + 200)
-        let height = max(60, tableViewYPosition)
-        let width = max(40, tableViewYPosition)
-        let movieFrame = CGRect(x: 0, y: 0, width: width, height: height)
-        movieImageView.frame = movieFrame
     }
 }
